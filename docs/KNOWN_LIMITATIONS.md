@@ -3,6 +3,10 @@
 Public Review 0.1 is deliberately bounded. The compiler rejects unsupported semantics instead of inferring authority or effects.
 
 - No frozen ABI, stable 1.0 specification, complete standard library or production-maturity claim.
+- The public self-host/reproducibility chain starts from checked-in Linux x86-64 bootstrap binaries. Their complete pre-publication origin is not independently reproducible from this repository alone; fixed-point equality demonstrates determinism/self-consistency from those seeds, not semantic correctness or seed-free trust. See `docs/BOOTSTRAP_TRUST.md`.
+- No independent external reviewer is currently claimed as having validated the full compiler or authority model. “Public Review” is the publication phase, not a peer-review claim. See `docs/EXTERNAL_REVIEW_STATUS.md`.
+- The public examples are intentionally small. The repository does not yet provide a non-trivial end-to-end showcase program combining the authority/effect/provenance features.
+- The Human-AI direction currently demonstrates a shared structured semantic inspection surface. It does not yet demonstrate a complete external agent workflow or prove a productivity advantage over mature language tooling. See `docs/HUMAN_AI_SEMANTICS_DEMO.md`.
 - Public authority transfer syntax is not admitted. Preview.14 proves internal destination binding and one-ACTIVE-lineage invariants only.
 - Return, storage/publication and call escapes cannot yet carry transferred authority; they remain fail-closed unless already admitted as ordinary effects.
 - General lifetime/escape analysis is not implemented.
