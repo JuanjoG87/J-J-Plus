@@ -1,5 +1,7 @@
 * text=auto eol=lf
-*.j text eol=lf
+# J/J+ uses .j; GitHub Linguist currently maps that extension to JASS.
+# Hide .j from language statistics until J/J+ has an official Linguist definition.
+*.j text eol=lf linguist-detectable=false
 *.md text eol=lf
 *.txt text eol=lf
 *.json text eol=lf
