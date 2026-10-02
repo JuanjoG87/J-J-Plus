@@ -14,7 +14,7 @@ cd J-J-Plus
 ## 2. Verify the reviewed bootstrap compilers
 
 ```bash
-sha256sum -c bootstrap/linux_x86_64/SHA256SUMS.txt
+(cd bootstrap/linux_x86_64 && sha256sum -c SHA256SUMS.txt)
 chmod +x bootstrap/linux_x86_64/jjc-root
 ```
 
@@ -123,7 +123,7 @@ cd J-J-Plus
 ## 2. Verificar los compiladores bootstrap revisados
 
 ```bash
-sha256sum -c bootstrap/linux_x86_64/SHA256SUMS.txt
+(cd bootstrap/linux_x86_64 && sha256sum -c SHA256SUMS.txt)
 chmod +x bootstrap/linux_x86_64/jjc-root
 ```
 
