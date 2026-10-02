@@ -26,9 +26,11 @@ At the same time, the language is being built to:
 > **Frozen technical candidate:** `v0.1.0-preview.14`  
 > **Status:** Experimental · Source-visible · Not production-ready
 
-**Start here:** [Quick Start](docs/QUICKSTART.md) · [Public Review 0.1 release](https://github.com/MinOSPlus/J-J-Plus/releases/tag/public-review-0.1) · [Reproducibility](docs/REPRODUCIBILITY.md)
+**Start here:** [Quick Start](docs/QUICKSTART.md) · [What J/J+ prevents](docs/WHAT_JJPLUS_PREVENTS.md) · [Bootstrap trust](docs/BOOTSTRAP_TRUST.md) · [Human-AI semantics demo](docs/HUMAN_AI_SEMANTICS_DEMO.md) · [Public Review 0.1 release](https://github.com/MinOSPlus/J-J-Plus/releases/tag/public-review-0.1)
 
-On Linux x86-64 (WSL2 is suitable), the shortest reviewed path is:
+> **Review terminology:** “Public Review” names the publication phase and invites outside scrutiny. It does **not** mean independent peer review has already happened. Current results are internally gated/reproducibly validated unless an external reviewer is explicitly identified. See [External Review Status](docs/EXTERNAL_REVIEW_STATUS.md).
+
+On Linux x86-64 (WSL2 is suitable), the shortest validated path is:
 
 ```bash
 git clone https://github.com/MinOSPlus/J-J-Plus.git
@@ -39,7 +41,7 @@ chmod +x hello.o
 ./hello.o
 ```
 
-The expected runtime exit code is `0`. The full quick start also verifies the reviewed SHA-256 outputs.
+The expected runtime exit code is `0`. The full quick start also verifies the validated SHA-256 outputs.
 
 > GitHub currently associates the `.j` extension with JASS. This repository intentionally hides that incorrect language classification until J/J+ has an official GitHub Linguist definition.
 
@@ -72,6 +74,40 @@ The compiler tracks the same facts structurally. They are not only comments for 
 
 ---
 
+## What J/J+ prevents today
+
+Two concrete examples are already in the repository.
+
+A function that declares:
+
+```text
+capability data;
+reads none;
+writes none;
+```
+
+but executes `data[0] = 1;` is rejected as:
+
+```text
+1507 / 6507
+undeclared-write-effect
+publication = NONE
+```
+
+The Preview.14 authority-state gate also accepts use of the bound destination and then rejects later use of the old source as:
+
+```text
+1514 / 6514
+authority-source-transferred
+published_outputs = 0
+```
+
+These are different invariants: one checks declared effects against observed effects; the other checks whether authority is still ACTIVE.
+
+See [What J/J+ Prevents Today](docs/WHAT_JJPLUS_PREVENTS.md) for the exact source files and retained evidence.
+
+---
+
 ## Humans and AI see the same semantics
 
 J/J+ is not about writing prompts inside source code, and it does not make an AI the authority over a program.
@@ -92,6 +128,8 @@ generation
 control flow
 diagnostic
 ```
+
+Structured output by itself is not the differentiator—other compilers also expose machine-readable diagnostics. The intended distinction is that effects, provenance, authority state, generations, and source spans are compiler-governed semantic relations with stable identities and an inspection API. See the [Human-AI Semantics Demo](docs/HUMAN_AI_SEMANTICS_DEMO.md).
 
 That makes questions like these easier to answer without guessing:
 
@@ -276,9 +314,19 @@ byte-for-byte, the compiler has reached a fixed point: the rebuilt compiler prod
 
 ---
 
+## Bootstrap trust boundary
+
+The public reproducibility chain begins from the three checked-in Linux x86-64 bootstrap binaries. A byte-exact fixed point proves determinism/self-consistency **from those seeds**; it does not prove semantic correctness or remove trust in the first seed.
+
+The repository does not currently contain an independently reproducible chain from a smaller external seed to the first hosted bootstrap.
+
+See [Bootstrap Trust Boundary](docs/BOOTSTRAP_TRUST.md) for the exact claim and remaining trust assumptions.
+
+---
+
 ## Three compiler lineages
 
-Public Review 0.1 carries three reviewed compiler lineages:
+Public Review 0.1 carries three validated compiler lineages:
 
 ```text
 Root
@@ -296,7 +344,7 @@ Profile B  → Root
 Diagnostic → Root
 ```
 
-The reviewed results must agree byte-for-byte.
+The validated results must agree byte-for-byte.
 
 This is not a formal proof of compiler correctness. It is a practical reproducibility and divergence-detection mechanism.
 
@@ -318,16 +366,16 @@ LLVM, GCC, Clang, or another external compiler framework are not intended to bec
 
 ---
 
-## Current reviewed targets
+## Current validated targets
 
 | Architecture | Public Review status |
 |---|---|
-| x86-64 | Reviewed |
-| AArch64 | Reviewed |
-| ARM32 | Reviewed |
-| i386 | Reviewed |
+| x86-64 | Validated |
+| AArch64 | Validated |
+| ARM32 | Validated |
+| i386 | Validated |
 
-This does not mean every language feature is finished on every architecture. It means the reviewed Public Review path contains target evidence for those architectures.
+This does not mean every language feature is finished on every architecture. It means the validated Public Review path contains target evidence for those architectures.
 
 ### Why i386 still matters
 
@@ -358,7 +406,7 @@ Build the effect-read example:
 bootstrap/linux_x86_64/jjc-root examples/EFFECT_READ_BUILD.txt effect-read.o
 ```
 
-For the complete reviewed self-host procedure, see [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
+For the complete validated self-host procedure, see [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
 
 ---
 
@@ -400,7 +448,7 @@ Diagnostic:
 
 ## What Public Review 0.1 demonstrates
 
-The frozen technical candidate contains reviewed evidence for areas including:
+The frozen technical candidate contains validated evidence for areas including:
 
 - deterministic compiler fixed points;
 - cross-lineage byte-exact rebuilds;
@@ -414,10 +462,12 @@ The frozen technical candidate contains reviewed evidence for areas including:
 - authority-root tracking;
 - post-transfer source invalidation infrastructure;
 - destination authority binding infrastructure;
-- x86-64, AArch64, ARM32, and i386 reviewed outputs;
+- x86-64, AArch64, ARM32, and i386 validated outputs;
 - clean-extraction reproducibility gates.
 
 The release is intentionally narrow. It exists so the architecture can be inspected before more surface syntax is frozen.
+
+The public repository still lacks a non-trivial end-to-end showcase program combining several of these guarantees. The current examples are intentionally small and the evidence suite is stronger than the application/demo layer. That is a known limitation, not a completed claim.
 
 ---
 
@@ -441,11 +491,11 @@ Public Review 0.1 is **not**:
 
 ```text
 .github/      GitHub issue and pull-request templates
-bootstrap/    reviewed bootstrap compilers and hashes
+bootstrap/    validated bootstrap compilers and hashes
 docs/         design, reproducibility, status, limitations
 evidence/     sealed reference outputs and review evidence
 examples/     small J/J+ programs and build manifests
-spec/         reviewed compiler build/specification manifests
+spec/         validated compiler build/specification manifests
 src_j/        J/J+ compiler source
 tests/        positive, negative, semantic, and target gates
 ```
@@ -485,7 +535,7 @@ When an important property is considered closed, the project tries to preserve r
 - cross-build outputs;
 - target outputs;
 - clean-replay gates;
-- reviewed reference artifacts.
+- validated reference artifacts.
 
 The `evidence/` directory is therefore intentional. Binary reference outputs are not accidental build leftovers; they exist to make byte-exact comparisons possible.
 
