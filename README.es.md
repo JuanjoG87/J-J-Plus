@@ -36,7 +36,7 @@ cd J-J-Plus
 chmod +x bootstrap/linux_x86_64/jjc-root
 bootstrap/linux_x86_64/jjc-root examples/HELLO_BUILD.txt hello.o
 chmod +x hello.o
-hello.o
+./hello.o
 ```
 
 El código de salida esperado es `0`. La guía completa también verifica los SHA-256 revisados.
