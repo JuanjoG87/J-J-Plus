@@ -27,10 +27,10 @@ Expected bootstrap hashes are recorded in the repository. The Root compiler hash
 ## 3. Compile and run your first J/J+ program
 
 ```bash
-bootstrap/linux_x86_64/jjc-root examples/HELLO_BUILD.txt /tmp/hello.o
-sha256sum /tmp/hello.o
-chmod +x /tmp/hello.o
-/tmp/hello.o
+bootstrap/linux_x86_64/jjc-root examples/HELLO_BUILD.txt hello.o
+sha256sum hello.o
+chmod +x hello.o
+hello.o
 echo $?
 ```
 
@@ -53,8 +53,8 @@ The build manifest points at the real source file `examples/hello.j`.
 A `require` example:
 
 ```bash
-bootstrap/linux_x86_64/jjc-root examples/GUARDED_BUILD.txt /tmp/guarded.o
-sha256sum /tmp/guarded.o
+bootstrap/linux_x86_64/jjc-root examples/GUARDED_BUILD.txt guarded.o
+sha256sum guarded.o
 ```
 
 Expected SHA-256:
@@ -66,8 +66,8 @@ Expected SHA-256:
 A capability/effect-read example:
 
 ```bash
-bootstrap/linux_x86_64/jjc-root examples/EFFECT_READ_BUILD.txt /tmp/effect-read.o
-sha256sum /tmp/effect-read.o
+bootstrap/linux_x86_64/jjc-root examples/EFFECT_READ_BUILD.txt effect-read.o
+sha256sum effect-read.o
 ```
 
 Expected SHA-256:
@@ -81,16 +81,16 @@ ffeddb59b7df6d7194843dd0940d179369cdb2c5da7e5f7c53872e7d066c9b5f
 ```bash
 bootstrap/linux_x86_64/jjc-root \
   spec/PUBLIC_REVIEW_0_1_ROOT_BUILD.txt \
-  /tmp/root-g2.o
+  root-g2.o
 
-chmod +x /tmp/root-g2.o
+chmod +x root-g2.o
 
-/tmp/root-g2.o \
+root-g2.o \
   spec/PUBLIC_REVIEW_0_1_ROOT_BUILD.txt \
-  /tmp/root-g3.o
+  root-g3.o
 
-cmp /tmp/root-g2.o /tmp/root-g3.o
-sha256sum /tmp/root-g2.o /tmp/root-g3.o
+cmp root-g2.o root-g3.o
+sha256sum root-g2.o root-g3.o
 ```
 
 Both files should have SHA-256:
@@ -130,10 +130,10 @@ chmod +x bootstrap/linux_x86_64/jjc-root
 ## 3. Compilar y ejecutar el primer programa J/J+
 
 ```bash
-bootstrap/linux_x86_64/jjc-root examples/HELLO_BUILD.txt /tmp/hello.o
-sha256sum /tmp/hello.o
-chmod +x /tmp/hello.o
-/tmp/hello.o
+bootstrap/linux_x86_64/jjc-root examples/HELLO_BUILD.txt hello.o
+sha256sum hello.o
+chmod +x hello.o
+hello.o
 echo $?
 ```
 
@@ -154,8 +154,8 @@ Código de salida esperado:
 Ejemplo con `require`:
 
 ```bash
-bootstrap/linux_x86_64/jjc-root examples/GUARDED_BUILD.txt /tmp/guarded.o
-sha256sum /tmp/guarded.o
+bootstrap/linux_x86_64/jjc-root examples/GUARDED_BUILD.txt guarded.o
+sha256sum guarded.o
 ```
 
 SHA-256 esperado:
@@ -167,8 +167,8 @@ SHA-256 esperado:
 Ejemplo de capability/efectos:
 
 ```bash
-bootstrap/linux_x86_64/jjc-root examples/EFFECT_READ_BUILD.txt /tmp/effect-read.o
-sha256sum /tmp/effect-read.o
+bootstrap/linux_x86_64/jjc-root examples/EFFECT_READ_BUILD.txt effect-read.o
+sha256sum effect-read.o
 ```
 
 SHA-256 esperado:
@@ -182,16 +182,16 @@ ffeddb59b7df6d7194843dd0940d179369cdb2c5da7e5f7c53872e7d066c9b5f
 ```bash
 bootstrap/linux_x86_64/jjc-root \
   spec/PUBLIC_REVIEW_0_1_ROOT_BUILD.txt \
-  /tmp/root-g2.o
+  root-g2.o
 
-chmod +x /tmp/root-g2.o
+chmod +x root-g2.o
 
-/tmp/root-g2.o \
+root-g2.o \
   spec/PUBLIC_REVIEW_0_1_ROOT_BUILD.txt \
-  /tmp/root-g3.o
+  root-g3.o
 
-cmp /tmp/root-g2.o /tmp/root-g3.o
-sha256sum /tmp/root-g2.o /tmp/root-g3.o
+cmp root-g2.o root-g3.o
+sha256sum root-g2.o root-g3.o
 ```
 
 Ambos archivos deben producir:
@@ -201,3 +201,12 @@ Ambos archivos deben producir:
 ```
 
 Para la ruta completa revisada consulta [REPRODUCIBILITY.md](REPRODUCIBILITY.md).
+
+
+## Clean generated files
+
+The examples above write reviewed outputs into the repository working directory. They are build products, not source files:
+
+```bash
+rm -f hello.o guarded.o effect-read.o root-g2.o root-g3.o
+```
