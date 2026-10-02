@@ -30,7 +30,7 @@ Expected bootstrap hashes are recorded in the repository. The Root compiler hash
 bootstrap/linux_x86_64/jjc-root examples/HELLO_BUILD.txt hello.o
 sha256sum hello.o
 chmod +x hello.o
-hello.o
+./hello.o
 echo $?
 ```
 
@@ -85,7 +85,7 @@ bootstrap/linux_x86_64/jjc-root \
 
 chmod +x root-g2.o
 
-root-g2.o \
+./root-g2.o \
   spec/PUBLIC_REVIEW_0_1_ROOT_BUILD.txt \
   root-g3.o
 
@@ -133,7 +133,7 @@ chmod +x bootstrap/linux_x86_64/jjc-root
 bootstrap/linux_x86_64/jjc-root examples/HELLO_BUILD.txt hello.o
 sha256sum hello.o
 chmod +x hello.o
-hello.o
+./hello.o
 echo $?
 ```
 
@@ -186,7 +186,7 @@ bootstrap/linux_x86_64/jjc-root \
 
 chmod +x root-g2.o
 
-root-g2.o \
+./root-g2.o \
   spec/PUBLIC_REVIEW_0_1_ROOT_BUILD.txt \
   root-g3.o
 
