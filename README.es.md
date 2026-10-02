@@ -26,6 +26,23 @@ Al mismo tiempo, el lenguaje está siendo construido para:
 > **Candidato técnico congelado:** `v0.1.0-preview.14`  
 > **Estado:** Experimental · Código visible públicamente · No listo para producción
 
+**Empieza aquí:** [Inicio rápido](docs/QUICKSTART.md#inicio-rápido-en-español) · [Release Public Review 0.1](https://github.com/MinOSPlus/J-J-Plus/releases/tag/public-review-0.1) · [Reproducibilidad](docs/REPRODUCIBILITY.md)
+
+En Linux x86-64 (WSL2 sirve para esta ruta), el recorrido revisado más corto es:
+
+```bash
+git clone https://github.com/MinOSPlus/J-J-Plus.git
+cd J-J-Plus
+chmod +x bootstrap/linux_x86_64/jjc-root
+bootstrap/linux_x86_64/jjc-root examples/HELLO_BUILD.txt /tmp/hello.o
+chmod +x /tmp/hello.o
+/tmp/hello.o
+```
+
+El código de salida esperado es `0`. La guía completa también verifica los SHA-256 revisados.
+
+> GitHub actualmente asocia la extensión `.j` con JASS. El repositorio oculta deliberadamente esa clasificación incorrecta hasta que J/J+ tenga una definición oficial en GitHub Linguist.
+
 ---
 
 ## Un pequeño ejemplo
