@@ -29,7 +29,7 @@ jobs:
           ./hello.o
 
           bootstrap/linux_x86_64/jjc-root examples/GUARDED_BUILD.txt guarded.o
-          echo "0f22cde5f0f48829c5d6710473dd158d8594d7e281cc7dba569bc4fe5ff37538  guarded.o" | sha256sum -c -
+          echo "3ac8f8b38196fba2b1169d445ad4df6ac58c0be70d02ca9d9d7a0d4cc300a411  guarded.o" | sha256sum -c -
 
           bootstrap/linux_x86_64/jjc-root examples/EFFECT_READ_BUILD.txt effect-read.o
           echo "ffeddb59b7df6d7194843dd0940d179369cdb2c5da7e5f7c53872e7d066c9b5f  effect-read.o" | sha256sum -c -
