@@ -60,7 +60,7 @@ sha256sum guarded.o
 Expected SHA-256:
 
 ```text
-0f22cde5f0f48829c5d6710473dd158d8594d7e281cc7dba569bc4fe5ff37538
+3ac8f8b38196fba2b1169d445ad4df6ac58c0be70d02ca9d9d7a0d4cc300a411
 ```
 
 A capability/effect-read example:
@@ -161,7 +161,7 @@ sha256sum guarded.o
 SHA-256 esperado:
 
 ```text
-0f22cde5f0f48829c5d6710473dd158d8594d7e281cc7dba569bc4fe5ff37538
+3ac8f8b38196fba2b1169d445ad4df6ac58c0be70d02ca9d9d7a0d4cc300a411
 ```
 
 Ejemplo de capability/efectos:
