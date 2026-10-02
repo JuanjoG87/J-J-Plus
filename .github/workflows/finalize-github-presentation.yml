@@ -26,7 +26,7 @@ jobs:
           bootstrap/linux_x86_64/jjc-root examples/HELLO_BUILD.txt hello.o
           echo "eec353afe4842b433ed17798be1a78eff20049e78a6f924ebf5c16eb0917403b  hello.o" | sha256sum -c -
           chmod +x hello.o
-          hello.o
+          ./hello.o
 
           bootstrap/linux_x86_64/jjc-root examples/GUARDED_BUILD.txt guarded.o
           echo "0f22cde5f0f48829c5d6710473dd158d8594d7e281cc7dba569bc4fe5ff37538  guarded.o" | sha256sum -c -
@@ -36,7 +36,7 @@ jobs:
 
           bootstrap/linux_x86_64/jjc-root spec/PUBLIC_REVIEW_0_1_ROOT_BUILD.txt root-g2.o
           chmod +x root-g2.o
-          root-g2.o spec/PUBLIC_REVIEW_0_1_ROOT_BUILD.txt root-g3.o
+          ./root-g2.o spec/PUBLIC_REVIEW_0_1_ROOT_BUILD.txt root-g3.o
           cmp root-g2.o root-g3.o
           echo "377a6990533d7a47020c3a149ba23eae3901c555913306abb26640329c6eecb3  root-g2.o" | sha256sum -c -
           echo "377a6990533d7a47020c3a149ba23eae3901c555913306abb26640329c6eecb3  root-g3.o" | sha256sum -c -
