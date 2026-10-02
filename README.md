@@ -34,9 +34,9 @@ On Linux x86-64 (WSL2 is suitable), the shortest reviewed path is:
 git clone https://github.com/MinOSPlus/J-J-Plus.git
 cd J-J-Plus
 chmod +x bootstrap/linux_x86_64/jjc-root
-bootstrap/linux_x86_64/jjc-root examples/HELLO_BUILD.txt /tmp/hello.o
-chmod +x /tmp/hello.o
-/tmp/hello.o
+bootstrap/linux_x86_64/jjc-root examples/HELLO_BUILD.txt hello.o
+chmod +x hello.o
+hello.o
 ```
 
 The expected runtime exit code is `0`. The full quick start also verifies the reviewed SHA-256 outputs.
