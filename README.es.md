@@ -26,9 +26,11 @@ Al mismo tiempo, el lenguaje está siendo construido para:
 > **Candidato técnico congelado:** `v0.1.0-preview.14`  
 > **Estado:** Experimental · Código visible públicamente · No listo para producción
 
-**Empieza aquí:** [Inicio rápido](docs/QUICKSTART.md#inicio-rápido-en-español) · [Release Public Review 0.1](https://github.com/MinOSPlus/J-J-Plus/releases/tag/public-review-0.1) · [Reproducibilidad](docs/REPRODUCIBILITY.md)
+**Empieza aquí:** [Inicio rápido](docs/QUICKSTART.md#inicio-rápido-en-español) · [Qué evita J/J+](docs/WHAT_JJPLUS_PREVENTS.es.md) · [Confianza del bootstrap](docs/BOOTSTRAP_TRUST.es.md) · [Demo Humano–IA](docs/HUMAN_AI_SEMANTICS_DEMO.es.md) · [Release Public Review 0.1](https://github.com/MinOSPlus/J-J-Plus/releases/tag/public-review-0.1)
 
-En Linux x86-64 (WSL2 sirve para esta ruta), el recorrido revisado más corto es:
+> **Terminología de revisión:** “Public Review” es el nombre de la fase de publicación y una invitación al escrutinio externo. No significa que ya exista peer review independiente. Los resultados actuales tienen gates/auditoría interna y validación reproducible salvo que se identifique explícitamente un revisor externo. Ver [Estado de revisión externa](docs/EXTERNAL_REVIEW_STATUS.es.md).
+
+En Linux x86-64 (WSL2 sirve para esta ruta), el recorrido validado más corto es:
 
 ```bash
 git clone https://github.com/MinOSPlus/J-J-Plus.git
@@ -39,7 +41,7 @@ chmod +x hello.o
 ./hello.o
 ```
 
-El código de salida esperado es `0`. La guía completa también verifica los SHA-256 revisados.
+El código de salida esperado es `0`. La guía completa también verifica los SHA-256 validados.
 
 > GitHub actualmente asocia la extensión `.j` con JASS. El repositorio oculta deliberadamente esa clasificación incorrecta hasta que J/J+ tenga una definición oficial en GitHub Linguist.
 
@@ -72,6 +74,40 @@ El compilador conoce esas mismas relaciones de forma estructurada. No son solame
 
 ---
 
+## Qué evita J/J+ hoy
+
+Ya existen dos ejemplos concretos en el repositorio.
+
+Una función que declara:
+
+```text
+capability data;
+reads none;
+writes none;
+```
+
+pero ejecuta `data[0] = 1;` es rechazada como:
+
+```text
+1507 / 6507
+undeclared-write-effect
+publication = NONE
+```
+
+El gate de autoridad de Preview.14 también acepta el uso del destino ligado y después rechaza un uso posterior del source viejo como:
+
+```text
+1514 / 6514
+authority-source-transferred
+published_outputs = 0
+```
+
+Son invariantes diferentes: uno compara efectos declarados con efectos observados; el otro comprueba si la autoridad sigue ACTIVE.
+
+Ver [Qué evita J/J+ hoy](docs/WHAT_JJPLUS_PREVENTS.es.md) para los sources y la evidencia exacta.
+
+---
+
 ## Humanos e IA ven la misma semántica
 
 J/J+ no consiste en escribir prompts dentro del código fuente y tampoco convierte a una IA en autoridad sobre el programa.
@@ -92,6 +128,8 @@ generation
 control flow
 diagnostic
 ```
+
+El simple hecho de producir salida estructurada no es la diferencia: otros compiladores también ofrecen diagnósticos legibles por máquinas. La intención diferenciadora es que efectos, provenance, estado de autoridad, generaciones y source spans sean relaciones semánticas gobernadas por el compilador, con identidades estables y una API de inspección. Ver [Demo de semántica Humano–IA](docs/HUMAN_AI_SEMANTICS_DEMO.es.md).
 
 Eso facilita responder preguntas sin adivinar:
 
@@ -276,6 +314,16 @@ byte por byte, el compilador alcanzó un fixed point: el compilador reconstruido
 
 ---
 
+## Límite de confianza del bootstrap
+
+La cadena pública de reproducibilidad comienza en los tres binarios bootstrap Linux x86-64 incluidos en el repositorio. Un fixed point byte-exacto demuestra determinismo/autoconsistencia **desde esas semillas**; no demuestra corrección semántica ni elimina la confianza en la primera semilla.
+
+El repositorio todavía no contiene una cadena independiente y reproducible desde una semilla externa más pequeña hasta el primer bootstrap hosted.
+
+Ver [Límite de confianza del bootstrap](docs/BOOTSTRAP_TRUST.es.md).
+
+---
+
 ## Tres linajes del compilador
 
 Public Review 0.1 contiene tres linajes revisados:
@@ -296,7 +344,7 @@ Profile B  → Root
 Diagnostic → Root
 ```
 
-Los resultados revisados deben coincidir byte por byte.
+Los resultados validados deben coincidir byte por byte.
 
 Esto no es una prueba formal de corrección. Es un mecanismo práctico de reproducibilidad y detección de divergencias.
 
@@ -414,7 +462,7 @@ El candidato técnico congelado contiene evidencia revisada para áreas como:
 - seguimiento de raíces de autoridad;
 - infraestructura de invalidación del origen después de una transferencia;
 - infraestructura de binding de autoridad del destino;
-- outputs revisados x86-64, AArch64, ARM32 e i386;
+- outputs validados x86-64, AArch64, ARM32 e i386;
 - gates reproducibles desde una extracción limpia.
 
 El release es deliberadamente limitado. Existe para que la arquitectura pueda ser inspeccionada antes de congelar más sintaxis pública.
@@ -441,7 +489,7 @@ Public Review 0.1 **no es**:
 
 ```text
 .github/      plantillas de issues y pull requests
-bootstrap/    compiladores bootstrap revisados y hashes
+bootstrap/    compiladores bootstrap validados y hashes
 docs/         diseño, reproducibilidad, estado y limitaciones
 evidence/     outputs de referencia y evidencia de revisión
 examples/     programas J/J+ pequeños y manifests de build
@@ -485,7 +533,7 @@ Cuando una propiedad importante se considera cerrada intentamos conservar eviden
 - outputs de cross-build;
 - outputs por target;
 - clean-replay gates;
-- artefactos de referencia revisados.
+- artefactos de referencia validados.
 
 Por eso `evidence/` es deliberado. Los binarios de referencia no son basura accidental de compilación: sirven para realizar comparaciones byte-exactas.
 
