@@ -1,0 +1,3 @@
+JJBUILD3
+P tests/effects/alias_provenance/
+575a8e2cd4f9994d7a6e3efa1f12679fb27d0679cfd0b274f32b4c6939d9e65a  local_alias_chain_rebind.j

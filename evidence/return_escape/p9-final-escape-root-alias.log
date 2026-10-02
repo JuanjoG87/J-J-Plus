@@ -1,0 +1,1 @@
+OMEGA_FAIL rc=113 code=1512 reason=effect-return-escape-unverified reason_id=6512 expected=non-escaping-capability-use-or-future-explicit-transfer-contract source_offset=102 line=7 column=10 token_length=5 source=tests/effects/escape_analysis/return_alias.j

@@ -1,0 +1,1 @@
+OMEGA_FAIL rc=113 code=1509 reason=effect-call-unverified reason_id=6509 expected=contracted-callee-for-direct-capability-argument source_offset=140 line=10 column=19 token_length=4 source=tests/effects/interprocedural/unverified_callee.j

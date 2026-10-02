@@ -1,0 +1,3 @@
+JJBUILD3
+P tests/positive/
+d2020752d8d73e89e93fe1e8a64e771d57d8404bfe346656560b59b2251f6637  require_contract.j

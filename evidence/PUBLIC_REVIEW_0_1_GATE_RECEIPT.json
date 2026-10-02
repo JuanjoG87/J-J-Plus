@@ -1,0 +1,373 @@
+{
+  "schema": "JJP_PUBLIC_REVIEW_GATE_RECEIPT_V14",
+  "release": "v0.1.0-preview.14",
+  "state": "CANDIDATE_NOT_CURRENT",
+  "date_asuncion": "2026-10-01",
+  "baseline": "J/J+ v0.1.0-preview.13 candidate over OMEGA Core R774",
+  "human_ai_contracts": {
+    "require": {
+      "syntax": "require <condition> else return <expression>;",
+      "typed_statement_kind": 13,
+      "failure_policy": "explicit",
+      "new_target_opcode": false
+    },
+    "effects": {
+      "syntax": [
+        "capability <pointer-parameters-or-none>;",
+        "reads <pointer-parameters-or-none>;",
+        "writes <pointer-parameters-or-none>;"
+      ],
+      "semantic_record_kind": 10,
+      "record_version": 1,
+      "contract_order": "capability -> reads -> writes",
+      "declared_and_observed_masks_retained": true
+    },
+    "interprocedural_effects": {
+      "semantic_record_kind": 11,
+      "record_version": 1,
+      "callee_requirements_propagated_to_caller_observed_effects": true,
+      "unverified_call_diagnostic": {
+        "code": 1509,
+        "reason_id": 6509,
+        "reason": "effect-call-unverified"
+      }
+    },
+    "alias_provenance": {
+      "semantic_record_kind": 12,
+      "record_version": 1,
+      "scope": "acyclic single-assignment local pointer alias chains rooted at a declared capability parameter",
+      "max_alias_edges": 64,
+      "strictly_decreasing_source_ordinal": true,
+      "effects_attributed_to_root_parameter": true,
+      "unsupported_alias_diagnostic": {
+        "code": 1510,
+        "reason_id": 6510,
+        "reason": "effect-alias-unverified"
+      }
+    },
+    "pointer_transform_provenance": {
+      "expression_record_kind": 13,
+      "alias_record_kind": 14,
+      "record_version": 1,
+      "operator": "pointer + constant-byte-offset",
+      "offset_min": 0,
+      "offset_max": 248,
+      "offset_alignment": 8,
+      "max_accumulated_transform_offset": 248,
+      "effects_attributed_to_root_parameter": true,
+      "unsupported_transform_diagnostic": {
+        "code": 1511,
+        "reason_id": 6511,
+        "reason": "effect-pointer-transform-unverified",
+        "expected": "constant-byte-offset-0-through-248-aligned-to-8-from-capability-provenance"
+      }
+    },
+    "return_escape_analysis": {
+      "diagnostic_code": 1512,
+      "reason_id": 6512,
+      "reason": "effect-return-escape-unverified",
+      "expected": "non-escaping-capability-use-or-future-explicit-transfer-contract",
+      "forms": [
+        "direct capability parameter",
+        "admitted local alias provenance",
+        "admitted transformed provenance"
+      ],
+      "transfer_admitted": false
+    },
+    "storage_escape_analysis": {
+      "diagnostic_code": 1513,
+      "reason_id": 6513,
+      "reason": "effect-storage-escape-unverified",
+      "expected": "non-publishing-capability-storage-or-future-explicit-transfer-contract",
+      "forms": [
+        "direct capability encoded then stored",
+        "admitted local alias encoded then stored",
+        "admitted transformed provenance encoded then stored"
+      ],
+      "ordinary_pointee_write_remains_effect": true,
+      "transfer_admitted": false
+    },
+    "escape_event": {
+      "semantic_record_kind": 15,
+      "record_version": 1,
+      "fields": [
+        "packed_shape",
+        "capability_root_ordinal",
+        "local_ordinal",
+        "source_start",
+        "source_count",
+        "version"
+      ],
+      "channels": {
+        "1": "return",
+        "2": "storage_publication",
+        "3": "unverified_call"
+      },
+      "provenance": {
+        "1": "direct_capability",
+        "2": "alias_chain",
+        "3": "transformed_provenance"
+      },
+      "transport": {
+        "1": "pointer_value",
+        "2": "integer_cast",
+        "3": "call_argument"
+      },
+      "transfer_admitted": false
+    },
+    "authority_root_state": {
+      "semantic_record_kind": 16,
+      "record_version": 1,
+      "fields": [
+        "function_id",
+        "capability_root_ordinal",
+        "state",
+        "generation",
+        "source_start",
+        "source_count",
+        "version"
+      ],
+      "states": {
+        "1": "ACTIVE",
+        "2": "TRANSFERRED"
+      },
+      "initial_generation": 0,
+      "aliases_create_authority": false,
+      "transforms_create_authority": false,
+      "transfer_admitted": false,
+      "initial_one_record_per_declared_capability_root": true,
+      "transition_append_only": true,
+      "transition_generation_increments": true,
+      "source_invalidated_after_transition": true,
+      "destination_active_after_transition": true,
+      "public_transfer_syntax_admitted": false
+    }
+  },
+  "fixed_point": {
+    "root": "377a6990533d7a47020c3a149ba23eae3901c555913306abb26640329c6eecb3",
+    "profile_b": "6c58f2dad44c2b6790945958ae055fececc122abcc78348af62da8316558886f",
+    "diagnostic": "4cec420e00517a6a27378bfeb818351b943ca041feb06e2f77bd7c9b39a3d2f9",
+    "g2_equals_g3": true,
+    "cross_lineage_checks": 4,
+    "cross_lineage_exact": true
+  },
+  "transformed_provenance_positive": {
+    "plus8": {
+      "x86_64": "9d676e92ad02e63f7dc2e290eb42c9d995b584ebc8fda783bbe31381f42e2463",
+      "aarch64": "97aa015ce99f3e534cfdee9b8e52767f1e68f78324ce6321c1b22daac4d67350",
+      "arm32": "fa0ec6626603731791c143330ec54857ac6d65f7344d759c4623b47367298da6",
+      "i386": "f6c37db8c8daa9627229c7f60b3a754ca5eb5a0961d473a0ea3f718be153fd8d"
+    },
+    "plus248": {
+      "x86_64": "7ae29602494cb6ad1337a4a51bffdbaf0aa7090cfe5d109b1dafd08318eb6f71",
+      "aarch64": "9d11d23a80d94f5b243f584204eebeb26ec8eba89782d4f97d08aa930263b60f",
+      "arm32": "4029722abc52aa94298a6d7ded35712842af5e16b3646fe46892ed493b966bf1",
+      "i386": "a573ce95a6f45d617f09c56f29575f121eb36b50976d58ebfaeff72d915e18ce"
+    },
+    "root_profile_diagnostic_exact": true,
+    "x86_runtime_exit": 0,
+    "semantic_inspection_api": "a35195fcdcfc4526b596cc0c801cf52c97ecb6237f7bdbd1098338c6702d214a",
+    "arm32_lowering": "verified kind-13/kind-14 transform normalized to CIR ARG -> ADDRESS_OFFSET -> LOAD -> RETURN"
+  },
+  "transformed_provenance_negative": {
+    "tests": 3,
+    "lineages": 3,
+    "fail_closed_runs": 9,
+    "published_outputs": 0,
+    "unaligned_plus1_code": 1511,
+    "out_of_range_plus256_code": 1511,
+    "dynamic_offset_code": 1511
+  },
+  "preview7_regression": {
+    "x86_64_effect_read": "ffeddb59b7df6d7194843dd0940d179369cdb2c5da7e5f7c53872e7d066c9b5f",
+    "x86_64_interprocedural_read": "75449a1c197a7be082cd1d263cb7217e04a5f6bcb7ae7a085632ec27ea95c0f4",
+    "x86_64_alias_chain": "07968bbfb7bdaaa3d0e858876cb12741dfcea759011576a519246c5cd96270b8",
+    "x86_64_alias_depth64": "686c05144e8399fdbb95825036684ffd82825f3de76b8b7b75d30e5495901f0b",
+    "aarch64_alias_chain": "7a6425a029d9c37dab452a8b15c6d5f013e059996fe386fdeb6e2e61f1e21c9c",
+    "arm32_alias_chain": "eedd123e84e297f085f7a3554bb57029d99e5b95ae741a8b234236cb2db49a93",
+    "i386_alias_chain": "e8acd487d60822c04814e37a972ac4ca1b038daed2f5764361d1e176d9048113",
+    "require_x86_64": "0f22cde5f0f48829c5d6710473dd158d8594d7e281cc7dba569bc4fe5ff37538",
+    "unchanged": true
+  },
+  "open_boundary": {
+    "alias_depth_over_64": true,
+    "alias_rebinding": true,
+    "general_alias_analysis": true,
+    "dynamic_pointer_transform": true,
+    "subtractive_pointer_transform": true,
+    "unaligned_pointer_transform": true,
+    "pointer_transform_over_248_bytes": true,
+    "external_call_effect_contracts": true,
+    "general_arm32_call_abi": true,
+    "arm32_dynamic_pointer_indexing": true,
+    "ensures": true,
+    "invariant": true,
+    "license_open_source": false,
+    "explicit_return_transfer": true,
+    "storage_escape": false,
+    "general_escape_analysis": true,
+    "explicit_storage_transfer": true,
+    "positive_authority_transfer": true,
+    "post_transfer_source_invalidation": false,
+    "public_authority_transfer_syntax": true,
+    "destination_binding": false,
+    "authority_handoff_escape_integration": true,
+    "general_destination_lifetime_analysis": true
+  },
+  "publication_boundary": {
+    "production_ready": false,
+    "abi_frozen": false,
+    "alias_provenance_admitted_bounded": true,
+    "constant_pointer_transform_provenance_admitted_bounded": true,
+    "license_open_source": false,
+    "return_escape_classified_fail_closed": true,
+    "storage_escape_classified_fail_closed": true,
+    "structured_escape_events_admitted": true,
+    "explicit_authority_transfer_admitted": false,
+    "internal_destination_binding_admitted": true,
+    "exactly_one_active_lineage_proven": true,
+    "unbound_positive_transition_in_production": false,
+    "github_source_visible_public_review_ready": true,
+    "clean_extraction_gate_passed": true
+  },
+  "return_escape_negative": {
+    "tests": 3,
+    "lineages": 3,
+    "fail_closed_runs": 9,
+    "published_outputs": 0,
+    "code": 1512,
+    "reason_id": 6512,
+    "representation_independent": true
+  },
+  "preview8_regression": {
+    "require_x86_64": "0f22cde5f0f48829c5d6710473dd158d8594d7e281cc7dba569bc4fe5ff37538",
+    "x86_64_effect_read": "ffeddb59b7df6d7194843dd0940d179369cdb2c5da7e5f7c53872e7d066c9b5f",
+    "x86_64_interprocedural_read": "75449a1c197a7be082cd1d263cb7217e04a5f6bcb7ae7a085632ec27ea95c0f4",
+    "x86_64_alias_chain": "07968bbfb7bdaaa3d0e858876cb12741dfcea759011576a519246c5cd96270b8",
+    "x86_64_transform_plus8": "9d676e92ad02e63f7dc2e290eb42c9d995b584ebc8fda783bbe31381f42e2463",
+    "aarch64_transform_plus8": "97aa015ce99f3e534cfdee9b8e52767f1e68f78324ce6321c1b22daac4d67350",
+    "arm32_transform_plus8": "fa0ec6626603731791c143330ec54857ac6d65f7344d759c4623b47367298da6",
+    "i386_transform_plus8": "f6c37db8c8daa9627229c7f60b3a754ca5eb5a0961d473a0ea3f718be153fd8d",
+    "unchanged": true
+  },
+  "storage_escape_negative": {
+    "tests": 3,
+    "lineages": 3,
+    "fail_closed_runs": 9,
+    "published_outputs": 0,
+    "code": 1513,
+    "reason_id": 6513,
+    "representation_independent": true
+  },
+  "return_escape_encoded": {
+    "tests": 1,
+    "lineages": 3,
+    "fail_closed_runs": 3,
+    "published_outputs": 0,
+    "code": 1512,
+    "reason_id": 6512,
+    "cast_intermediate_normalized": true
+  },
+  "preview9_regression": {
+    "require_x86_64": "0f22cde5f0f48829c5d6710473dd158d8594d7e281cc7dba569bc4fe5ff37538",
+    "x86_64_effect_read": "ffeddb59b7df6d7194843dd0940d179369cdb2c5da7e5f7c53872e7d066c9b5f",
+    "x86_64_interprocedural_read": "75449a1c197a7be082cd1d263cb7217e04a5f6bcb7ae7a085632ec27ea95c0f4",
+    "x86_64_alias_chain": "07968bbfb7bdaaa3d0e858876cb12741dfcea759011576a519246c5cd96270b8",
+    "x86_64_transform_plus8": "9d676e92ad02e63f7dc2e290eb42c9d995b584ebc8fda783bbe31381f42e2463",
+    "aarch64_transform_plus8": "97aa015ce99f3e534cfdee9b8e52767f1e68f78324ce6321c1b22daac4d67350",
+    "arm32_transform_plus8": "fa0ec6626603731791c143330ec54857ac6d65f7344d759c4623b47367298da6",
+    "i386_transform_plus8": "f6c37db8c8daa9627229c7f60b3a754ca5eb5a0961d473a0ea3f718be153fd8d",
+    "unchanged": true
+  },
+  "escape_event_api": {
+    "object_sha256": "92d1e0f1dcfcab9118e25270fada69424e3cc60a24e3f94087d436135a5bc2a5",
+    "root_profile_diagnostic_exact": true
+  },
+  "preview10_regression": {
+    "require_x86_64": "0f22cde5f0f48829c5d6710473dd158d8594d7e281cc7dba569bc4fe5ff37538",
+    "effect_read_x86_64": "ffeddb59b7df6d7194843dd0940d179369cdb2c5da7e5f7c53872e7d066c9b5f",
+    "interprocedural_x86_64": "75449a1c197a7be082cd1d263cb7217e04a5f6bcb7ae7a085632ec27ea95c0f4",
+    "alias_chain_x86_64": "07968bbfb7bdaaa3d0e858876cb12741dfcea759011576a519246c5cd96270b8",
+    "transform_plus8_x86_64": "9d676e92ad02e63f7dc2e290eb42c9d995b584ebc8fda783bbe31381f42e2463",
+    "store_constant_x86_64": "507752dab9ed818ce9f83ff5ffedcdb4dd9c01bc731c65e8dd8e5d8bb5720c68",
+    "transform_plus8_aarch64": "97aa015ce99f3e534cfdee9b8e52767f1e68f78324ce6321c1b22daac4d67350",
+    "transform_plus8_arm32": "fa0ec6626603731791c143330ec54857ac6d65f7344d759c4623b47367298da6",
+    "transform_plus8_i386": "f6c37db8c8daa9627229c7f60b3a754ca5eb5a0961d473a0ea3f718be153fd8d",
+    "unchanged": true
+  },
+  "authority_root_state_evidence": {
+    "two_root_executable": "a2d89099a2cca0e05202bf90b2e2ea29a6d37bb093564329d97172de766b045b",
+    "two_root_runtime_exit": 0,
+    "root_profile_diagnostic_exact": true,
+    "semantic_inspection_api": "012876cc60b221df65d431bab8ee5b4e38843365d453ca7d4f9e501fab1aa7d3",
+    "ledger_verified_1_to_1_at_entry": true,
+    "transition_gate_compiler": "9a071aaa13303796794af56c9b6da9d84fa2cd96f1732a03364fcd960d19024c",
+    "transition_gate_hello": "eec353afe4842b433ed17798be1a78eff20049e78a6f924ebf5c16eb0917403b",
+    "transition_gate_runtime_exit": 0,
+    "generation_chain_verified": [
+      0,
+      1,
+      2
+    ],
+    "destination_bound_to_ordinary_local": true,
+    "exactly_one_active_lineage": true,
+    "unbound_positive_transition_in_production": false
+  },
+  "preview11_regression": {
+    "require_x86_64": "0f22cde5f0f48829c5d6710473dd158d8594d7e281cc7dba569bc4fe5ff37538",
+    "effect_read_x86_64": "ffeddb59b7df6d7194843dd0940d179369cdb2c5da7e5f7c53872e7d066c9b5f",
+    "interprocedural_read_x86_64": "75449a1c197a7be082cd1d263cb7217e04a5f6bcb7ae7a085632ec27ea95c0f4",
+    "alias_chain_x86_64": "07968bbfb7bdaaa3d0e858876cb12741dfcea759011576a519246c5cd96270b8",
+    "transform_plus8_x86_64": "9d676e92ad02e63f7dc2e290eb42c9d995b584ebc8fda783bbe31381f42e2463",
+    "store_constant_x86_64": "507752dab9ed818ce9f83ff5ffedcdb4dd9c01bc731c65e8dd8e5d8bb5720c68",
+    "transform_plus8_aarch64": "97aa015ce99f3e534cfdee9b8e52767f1e68f78324ce6321c1b22daac4d67350",
+    "transform_plus8_arm32": "fa0ec6626603731791c143330ec54857ac6d65f7344d759c4623b47367298da6",
+    "transform_plus8_i386": "f6c37db8c8daa9627229c7f60b3a754ca5eb5a0961d473a0ea3f718be153fd8d",
+    "unchanged": true
+  },
+  "post_transfer_source_invalidation": {
+    "test_only_gate_compiler": "d59426cb02f3c4a55ec594e0839eef5f2d96e104d75f7be10ed66cd25120ec8d",
+    "probe_source": "263999c4090b3cbfdc1753e42984cd60aba463209d74f4e8d5d08191e4b0da64",
+    "production_probe_object": "1d6b3b5fe6c9cfbbe2c2706b45ad3d70a688e99da518739de3ffe3575330f091",
+    "gate_exit": 113,
+    "code": 1514,
+    "reason_id": 6514,
+    "reason": "authority-source-transferred",
+    "expected": "active-authority-root-at-capability-use",
+    "line": 8,
+    "column": 20,
+    "token_length": 4,
+    "published_outputs": 0,
+    "verifier_path_proven": true,
+    "public_transfer_syntax": false,
+    "source_offset": 142,
+    "bound_destination_use_accepted": true
+  },
+  "preview12_regression": {
+    "require_x86_64": "0f22cde5f0f48829c5d6710473dd158d8594d7e281cc7dba569bc4fe5ff37538",
+    "effect_read_x86_64": "ffeddb59b7df6d7194843dd0940d179369cdb2c5da7e5f7c53872e7d066c9b5f",
+    "interprocedural_read_x86_64": "75449a1c197a7be082cd1d263cb7217e04a5f6bcb7ae7a085632ec27ea95c0f4",
+    "alias_chain_x86_64": "07968bbfb7bdaaa3d0e858876cb12741dfcea759011576a519246c5cd96270b8",
+    "transform_plus8_x86_64": "9d676e92ad02e63f7dc2e290eb42c9d995b584ebc8fda783bbe31381f42e2463",
+    "transform_plus8_aarch64": "97aa015ce99f3e534cfdee9b8e52767f1e68f78324ce6321c1b22daac4d67350",
+    "transform_plus8_arm32": "fa0ec6626603731791c143330ec54857ac6d65f7344d759c4623b47367298da6",
+    "transform_plus8_i386": "f6c37db8c8daa9627229c7f60b3a754ca5eb5a0961d473a0ea3f718be153fd8d",
+    "two_root_x86_64": "a2d89099a2cca0e05202bf90b2e2ea29a6d37bb093564329d97172de766b045b",
+    "unchanged": true
+  },
+  "destination_authority_binding": {
+    "semantic_record_kind": 17,
+    "record_version": 1,
+    "inspection_api_object": "012876cc60b221df65d431bab8ee5b4e38843365d453ca7d4f9e501fab1aa7d3",
+    "state_machine_gate_compiler": "9a071aaa13303796794af56c9b6da9d84fa2cd96f1732a03364fcd960d19024c",
+    "real_verifier_gate_compiler": "d59426cb02f3c4a55ec594e0839eef5f2d96e104d75f7be10ed66cd25120ec8d",
+    "production_probe_object": "1d6b3b5fe6c9cfbbe2c2706b45ad3d70a688e99da518739de3ffe3575330f091",
+    "exactly_one_active_lineage": true,
+    "destination_reuse_rejected": true,
+    "sibling_lineage_rejected": true,
+    "malformed_or_cycle_like_provenance_rejected": true,
+    "destination_after_event_rejected": true,
+    "unbound_positive_transition_in_production": false,
+    "public_transfer_syntax": false
+  }
+}

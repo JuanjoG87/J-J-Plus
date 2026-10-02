@@ -1,0 +1,15 @@
+PREVIEW14_DESTINATION_BINDING_VERIFIER_GATE PASS
+gate_compiler_sha256=d59426cb02f3c4a55ec594e0839eef5f2d96e104d75f7be10ed66cd25120ec8d
+production_probe_object_sha256=1d6b3b5fe6c9cfbbe2c2706b45ad3d70a688e99da518739de3ffe3575330f091
+gate_exit=113
+code=1514
+reason_id=6514
+reason=authority-source-transferred
+expected=active-authority-root-at-capability-use
+source_offset=142
+line=8
+column=20
+token_length=4
+bound_destination_use_accepted=true
+old_source_use_rejected=true
+published_outputs=0

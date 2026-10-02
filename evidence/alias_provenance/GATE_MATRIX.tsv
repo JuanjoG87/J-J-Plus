@@ -1,0 +1,6 @@
+target	test	sha256	lineage	note
+x86-64	local_alias_chain	07968bbfb7bdaaa3d0e858876cb12741dfcea759011576a519246c5cd96270b8	Root=Profile=Diagnostic	runtime rc=0
+AArch64	local_alias_chain	7a6425a029d9c37dab452a8b15c6d5f013e059996fe386fdeb6e2e61f1e21c9c	Root=Profile=Diagnostic	object
+ARM32	local_alias_chain	eedd123e84e297f085f7a3554bb57029d99e5b95ae741a8b234236cb2db49a93	Root=Profile=Diagnostic	provenance-verified chain normalized to admitted direct data[0]
+i386	local_alias_chain	e8acd487d60822c04814e37a972ac4ca1b038daed2f5764361d1e176d9048113	Root=Profile=Diagnostic	object
+x86-64	alias_depth64	686c05144e8399fdbb95825036684ffd82825f3de76b8b7b75d30e5495901f0b	Root=Profile=Diagnostic	runtime rc=0; admitted depth boundary

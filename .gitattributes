@@ -1,0 +1,12 @@
+* text=auto eol=lf
+*.j text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.cff text eol=lf
+*.o binary
+*.ppm binary
+*.zip binary
+*.sha256 text eol=lf
+artifacts/** linguist-generated=true
+receipts/** linguist-generated=true

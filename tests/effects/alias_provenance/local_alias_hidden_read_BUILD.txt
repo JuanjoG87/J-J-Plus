@@ -1,0 +1,3 @@
+JJBUILD3
+P tests/effects/alias_provenance/
+37c87b5eb0848a497ba498d990e581aee364411d6e70257e7b9a1ffcb2a52cc3  local_alias_hidden_read.j

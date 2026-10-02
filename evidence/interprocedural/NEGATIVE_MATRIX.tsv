@@ -1,0 +1,4 @@
+test	code	reason_id	reason	lineages_fail_closed	published_outputs
+undeclared_callee_read	1506	6506	undeclared-read-effect	3/3	0
+undeclared_callee_write	1507	6507	undeclared-write-effect	3/3	0
+unverified_callee	1509	6509	effect-call-unverified	3/3	0

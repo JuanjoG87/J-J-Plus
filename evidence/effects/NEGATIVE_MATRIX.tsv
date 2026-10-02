@@ -1,0 +1,10 @@
+case	root	profile	diagnostic	publication
+capability_escape	code=1508 reason=unsupported-capability-escape	code=1508 reason=unsupported-capability-escape	code=1508 reason=unsupported-capability-escape	NONE
+outside_capability	code=1505 reason=effect-outside-capability	code=1505 reason=effect-outside-capability	code=1505 reason=effect-outside-capability	NONE
+scalar_capability	code=1503 reason=effect-target-not-pointer-parameter	code=1503 reason=effect-target-not-pointer-parameter	code=1503 reason=effect-target-not-pointer-parameter	NONE
+undeclared_read	code=1506 reason=undeclared-read-effect	code=1506 reason=undeclared-read-effect	code=1506 reason=undeclared-read-effect	NONE
+undeclared_write	code=1507 reason=undeclared-write-effect	code=1507 reason=undeclared-write-effect	code=1507 reason=undeclared-write-effect	NONE
+duplicate_target	code=1504 reason=effect-target-duplicate	code=1504 reason=effect-target-duplicate	code=1504 reason=effect-target-duplicate	NONE
+incomplete_contract	code=1501 reason=effect-contract-incomplete	code=1501 reason=effect-contract-incomplete	code=1501 reason=effect-contract-incomplete	NONE
+order_reads_before_capability	code=1502 reason=effect-contract-order	code=1502 reason=effect-contract-order	code=1502 reason=effect-contract-order	NONE
+order_capability_writes_reads	code=1502 reason=effect-contract-order	code=1502 reason=effect-contract-order	code=1502 reason=effect-contract-order	NONE

@@ -1,0 +1,10 @@
+lineage	form	rc	published	code	reason_id	reason
+Root	direct	113	0	1512	6512	effect-return-escape-unverified
+Root	alias	113	0	1512	6512	effect-return-escape-unverified
+Root	transformed	113	0	1512	6512	effect-return-escape-unverified
+ProfileB	direct	113	0	1512	6512	effect-return-escape-unverified
+ProfileB	alias	113	0	1512	6512	effect-return-escape-unverified
+ProfileB	transformed	113	0	1512	6512	effect-return-escape-unverified
+Diagnostic	direct	113	0	1512	6512	effect-return-escape-unverified
+Diagnostic	alias	113	0	1512	6512	effect-return-escape-unverified
+Diagnostic	transformed	113	0	1512	6512	effect-return-escape-unverified

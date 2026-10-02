@@ -1,0 +1,1 @@
+OMEGA_FAIL rc=113 code=1513 reason=effect-storage-escape-unverified reason_id=6513 expected=non-publishing-capability-storage-or-future-explicit-transfer-contract source_offset=92 line=6 column=12 token_length=4 source=tests/effects/escape_analysis/store_direct_as_i64.j

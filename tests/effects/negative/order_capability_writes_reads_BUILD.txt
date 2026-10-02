@@ -1,0 +1,3 @@
+JJBUILD3
+P tests/effects/negative/
+567123e1ab47db11383bd6b572cbaf887530149fc643c4f042e4f8452cfad5b8  order_capability_writes_reads.j

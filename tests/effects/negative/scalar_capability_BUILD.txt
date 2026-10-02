@@ -1,0 +1,3 @@
+JJBUILD3
+P tests/effects/negative/
+8933fe55d65c528e7850c46cf85e674bec0992671d4ad4b69062885e2ef8b40d  scalar_capability.j

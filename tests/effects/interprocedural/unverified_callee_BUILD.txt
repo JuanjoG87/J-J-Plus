@@ -1,0 +1,3 @@
+JJBUILD3
+P tests/effects/interprocedural/
+022a79420fc00218beaf37a0f6703b96d7b5401e3e15621b0dcaebd4cbda3927  unverified_callee.j

@@ -1,0 +1,1 @@
+OMEGA_FAIL rc=113 code=1514 reason=authority-source-transferred reason_id=6514 expected=active-authority-root-at-capability-use source_offset=142 line=8 column=20 token_length=4 source=tests/effects/authority_state/destination_binding_probe.j

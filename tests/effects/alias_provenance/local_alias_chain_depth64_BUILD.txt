@@ -1,0 +1,3 @@
+JJBUILD3
+P tests/effects/alias_provenance/
+f2221cffaacefa0113d71fe7de0dfd0414c9cd99781efd3ffd58486b7b6ad754  local_alias_chain_depth64.j

@@ -1,0 +1,3 @@
+JJBUILD3
+P tests/effects/interprocedural/
+204e40285ad3109302fa5c7a9a759962f42f96354bb9cd8c04982a82ebec93d4  read_through_callee.j

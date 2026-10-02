@@ -1,0 +1,6 @@
+// GENERATED JMetaCodegen v1: encoded authorized/observed kind.
+extern fn jj_coldtail_pad(a:*i8,b:i64)->i64;
+extern fn jj_coldtail_marker(a:*i8,b:i64,c:i64)->i64;
+extern fn jj_coldtail_mto_disp8(a:i64)->i64;
+fn jj_gco(p:*i8,n:i64)->i64{if n<14{return 0;}if p[0]!=0x58{return 0;}if p[1]==0x48{if (p[2]&255)!=0x89{return 0;}if (p[3]&255)!=0x45{return 0;}if jj_coldtail_mto_disp8(p[4])==0{return 0;}if p[5]!=0x50{return 0;}if jj_coldtail_marker(p,6,0x60)==0{return 0;}if jj_coldtail_pad(p+11,3)==0{return 0;}return 4113;}if p[1]==0x50{if n<17{return 0;}if jj_coldtail_pad(p+2,10)==0{return 0;}if jj_coldtail_marker(p,12,0x51)==0{return 0;}return 2827;}if p[1]==0x31{if n<17{return 0;}if (p[2]&255)!=0xc0{return 0;}if p[3]!=0x50{return 0;}if jj_coldtail_pad(p+4,8)==0{return 0;}if jj_coldtail_marker(p,12,0x52)==0{return 0;}return 3084;}return 0;}
+fn jj_gcn(p:*i8,n:i64)->i64{if n<7{return 0;}if p[0]!=0x58{return 0;}if p[1]==0x48{if n<11{return 0;}if (p[2]&255)!=0x89{return 0;}if (p[3]&255)!=0x45{return 0;}if jj_coldtail_mto_disp8(p[4])==0{return 0;}if p[5]!=0x50{return 0;}if jj_coldtail_marker(p,6,0x60)==0{return 0;}return 4112;}if p[1]==0x50{if jj_coldtail_marker(p,2,0x51)==0{return 0;}return 2827;}if p[1]==0x31{if n<9{return 0;}if (p[2]&255)!=0xc0{return 0;}if p[3]!=0x50{return 0;}if jj_coldtail_marker(p,4,0x52)==0{return 0;}return 3084;}return 0;}

@@ -1,0 +1,3 @@
+JJBUILD3
+P tests/effects/negative/
+d85e4a69ce1d7da4b27e621ed692601f0e1128d2359d4746ce86979e2833dd2e  undeclared_read.j

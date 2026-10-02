@@ -1,0 +1,10 @@
+// reaction network ReactionNetwork emitter with source-statement commit frontiers.
+extern fn jj_reo_wr32(p0:*i8,p1:i64)->i64;extern fn jj_reo_nop(p0:*i8,p1:i64,p2:i64)->i64;extern fn jj_r16_binary_bytes(p0:*i8,p1:i64,p2:i64)->i64;extern fn jj_rb_shift_modrm(p0:i64)->i64;
+fn jj_rc_store(code:*i8,at:i64,slot:i64)->i64{code[at]=0x48;code[at+1]=0x89;code[at+2]=0x85;if jj_reo_wr32(code+at+3,0-((slot+1)*8))==0{return 0;}code[at+7]=0x90;return 1;}
+fn jj_rc_emit(code:*i8,begin:i64,end:i64,d:*i64)->i64{
+ if code==0{return 0;}if d==0{return 0;}var slot:i64=d[0];var s1:i64=d[1];var b1:i64=d[2];var k1:i64=d[3];var imm:i64=d[4];var s2:i64=d[5];var b2:i64=d[6];var k2:i64=d[7];if slot<0{return 0;}if slot>32767{return 0;}if k1<0{return 0;}if k1>=64{return 0;}if k2<0{return 0;}if k2>=64{return 0;}
+ var m1:i64=jj_rb_shift_modrm(s1);var m2:i64=jj_rb_shift_modrm(s2);if m1==0{return 0;}if m2==0{return 0;}var first:i64=45;if b1==11{first=46;}var third:i64=45;if b2==11{third=46;}if end-begin!=first+40+third{return 0;}
+ var at:i64=begin;code[at]=0x48;code[at+1]=0x8b;code[at+2]=0x85;if jj_reo_wr32(code+at+3,0-((slot+1)*8))==0{return 0;}at=at+7;code[at]=0x48;code[at+1]=0x89;code[at+2]=0xc1;at=at+3;code[at]=0x48;code[at+1]=0xc1;code[at+2]=m1;code[at+3]=k1;at=at+4;var used:i64=jj_r16_binary_bytes(code,at,b1);if used==0{return 0;}at=at+used;if jj_reo_nop(code,at,begin+first)==0{return 0;}
+ at=begin+first;if jj_rc_store(code,at,slot)==0{return 0;}at=at+8;code[at]=0x48;code[at+1]=0xb9;var i:i64=0;while i<8{code[at+2+i]=imm>>>(i*8);i=i+1;}at=at+10;code[at]=0x48;code[at+1]=0x0f;code[at+2]=0xaf;code[at+3]=0xc1;at=at+4;if jj_reo_nop(code,at,begin+first+32)==0{return 0;}
+ at=begin+first+32;if jj_rc_store(code,at,slot)==0{return 0;}at=at+8;code[at]=0x48;code[at+1]=0x89;code[at+2]=0xc1;at=at+3;code[at]=0x48;code[at+1]=0xc1;code[at+2]=m2;code[at+3]=k2;at=at+4;used=jj_r16_binary_bytes(code,at,b2);if used==0{return 0;}at=at+used;code[at]=0x50;at=at+1;if end-at<5{return 0;}if jj_reo_nop(code,at,end-5)==0{return 0;}code[end-5]=0x0f;code[end-4]=0x1f;code[end-3]=0x44;code[end-2]=0;code[end-1]=0x43;return 1;
+}

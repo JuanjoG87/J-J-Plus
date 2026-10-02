@@ -1,0 +1,24 @@
+name: Reproduction failure
+description: Report a fixed-point, target, or output mismatch
+title: "[repro] "
+labels: ["reproducibility"]
+body:
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Linux x86-64 / WSL2 / other
+    validations:
+      required: true
+  - type: input
+    id: compiler
+    attributes:
+      label: Compiler SHA-256
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command and output
+    validations:
+      required: true

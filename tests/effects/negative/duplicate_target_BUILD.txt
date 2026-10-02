@@ -1,0 +1,3 @@
+JJBUILD3
+P tests/effects/negative/
+73452339cb22525dc8fe57f3fee69b27b49b50762ed1498821c0fce893f78ef9  duplicate_target.j

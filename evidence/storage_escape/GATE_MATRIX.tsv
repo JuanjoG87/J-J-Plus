@@ -1,0 +1,13 @@
+lineage	form	rc	output	code	reason_id	reason
+Root	store_direct_as_i64	113	0	1513	6513	effect-storage-escape-unverified
+Root	store_alias_as_i64	113	0	1513	6513	effect-storage-escape-unverified
+Root	store_transformed_as_i64	113	0	1513	6513	effect-storage-escape-unverified
+Root	return_direct_as_i64	113	0	1512	6512	effect-return-escape-unverified
+ProfileB	store_direct_as_i64	113	0	1513	6513	effect-storage-escape-unverified
+ProfileB	store_alias_as_i64	113	0	1513	6513	effect-storage-escape-unverified
+ProfileB	store_transformed_as_i64	113	0	1513	6513	effect-storage-escape-unverified
+ProfileB	return_direct_as_i64	113	0	1512	6512	effect-return-escape-unverified
+Diagnostic	store_direct_as_i64	113	0	1513	6513	effect-storage-escape-unverified
+Diagnostic	store_alias_as_i64	113	0	1513	6513	effect-storage-escape-unverified
+Diagnostic	store_transformed_as_i64	113	0	1513	6513	effect-storage-escape-unverified
+Diagnostic	return_direct_as_i64	113	0	1512	6512	effect-return-escape-unverified

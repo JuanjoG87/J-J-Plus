@@ -1,0 +1,28 @@
+// R729 bounded points-to set authority v1.
+// Header is eight qwords; each alternative is eight qwords copied from a valid
+// alias-location record without its address-bound header/seal.
+extern fn jj_alias_location_bind(p0:*i64,p1:i64,p2:i64,p3:i64,p4:i64,p5:i64)->i64;
+extern fn jj_alias_location_set_domain(p0:*i64,p1:i64,p2:i64,p3:i64)->i64;
+extern fn jj_alias_location_valid(p0:*i64)->i64;
+extern fn jj_alias_location_query(p0:*i64,p1:*i64)->i64;
+fn jj_alias_set_capacity(n:i64)->i64{if n<16{return 0;}if n>72{return 0;}if ((n-8)&7)!=0{return 0;}return (n-8)/8;}
+fn jj_alias_set_seal(s:*i64,n:i64)->i64{if s==0{return 0;}var cap:i64=jj_alias_set_capacity(n);if cap<=0{return 0;}var h:i64=(s as i64)^n^0x4a4a415345545331;var i:i64=0;while i<n{var v:i64=s[i];if i==4{v=0;}h=((h<<7)|(h>>>57))^v^((i+1)*0x9e3779b1);i=i+1;}if h==0{h=1;}return h;}
+fn jj_alias_set_entry_equal(s:*i64,at:i64,r:*i64)->i64{if s[at]!=r[2]{return 0;}if s[at+1]!=r[3]{return 0;}if s[at+2]!=r[4]{return 0;}if s[at+3]!=r[5]{return 0;}if s[at+4]!=r[6]{return 0;}if s[at+5]!=r[7]{return 0;}if s[at+6]!=r[8]{return 0;}if s[at+7]!=r[9]{return 0;}return 1;}
+fn jj_alias_set_valid(s:*i64,n:i64)->i64{
+ if s==0{return 0;}var cap:i64=jj_alias_set_capacity(n);if cap<=0{return 0;}if s[0]!=0x4a4a415345543031{return 0;}if s[1]!=1{return 0;}if s[2]<0{return 0;}if s[2]>cap{return 0;}if s[3]!=cap{return 0;}if s[5]!=0{return 0;}if s[6]!=0{return 0;}if s[7]!=0{return 0;}var i:i64=0;while i<cap{var at:i64=8+i*8;if i<s[2]{var r:[12]i64;if jj_alias_location_bind(r as *i64,s[at],s[at+1],s[at+2],s[at+3],s[at+4])==0{return 0;}if s[at]!=5{if jj_alias_location_set_domain(r as *i64,s[at+5],s[at+6],s[at+7])==0{return 0;}}var j:i64=0;while j<i{if jj_alias_set_entry_equal(s,8+j*8,r as *i64)!=0{return 0;}j=j+1;}}else{var k:i64=0;while k<8{if s[at+k]!=0{return 0;}k=k+1;}}i=i+1;}return s[4]==jj_alias_set_seal(s,n);
+}
+fn jj_alias_set_init(s:*i64,n:i64)->i64{if s==0{return 0;}var cap:i64=jj_alias_set_capacity(n);if cap<=0{return 0;}var i:i64=0;while i<n{s[i]=0;i=i+1;}s[0]=0x4a4a415345543031;s[1]=1;s[2]=0;s[3]=cap;s[4]=jj_alias_set_seal(s,n);return s[4]!=0;}
+fn jj_alias_set_contains(s:*i64,n:i64,r:*i64)->i64{if jj_alias_set_valid(s,n)==0{return 0-1;}if jj_alias_location_valid(r)==0{return 0-1;}var i:i64=0;while i<s[2]{if jj_alias_set_entry_equal(s,8+i*8,r)!=0{return i;}i=i+1;}return 0-1;}
+fn jj_alias_set_add(s:*i64,n:i64,r:*i64)->i64{if jj_alias_set_valid(s,n)==0{return 0;}if jj_alias_location_valid(r)==0{return 0;}if jj_alias_set_contains(s,n,r)>=0{return 1;}if s[2]>=s[3]{return 0;}var at:i64=8+s[2]*8;s[at]=r[2];s[at+1]=r[3];s[at+2]=r[4];s[at+3]=r[5];s[at+4]=r[6];s[at+5]=r[7];s[at+6]=r[8];s[at+7]=r[9];s[2]=s[2]+1;s[4]=jj_alias_set_seal(s,n);return s[4]!=0;}
+fn jj_alias_set_location(s:*i64,index:i64,out:*i64)->i64{if s==0{return 0;}if out==0{return 0;}if index<0{return 0;}if s[0]!=0x4a4a415345543031{return 0;}if s[1]!=1{return 0;}if s[3]<1{return 0;}if s[3]>8{return 0;}var n:i64=8+s[3]*8;if jj_alias_set_valid(s,n)==0{return 0;}if index>=s[2]{return 0;}var at:i64=8+index*8;if jj_alias_location_bind(out,s[at],s[at+1],s[at+2],s[at+3],s[at+4])==0{return 0;}if s[at]==5{return 1;}return jj_alias_location_set_domain(out,s[at+5],s[at+6],s[at+7]);}
+fn jj_alias_set_query(a:*i64,an:i64,b:*i64,bn:i64)->i64{
+ if jj_alias_set_valid(a,an)==0{return 0;}if jj_alias_set_valid(b,bn)==0{return 0;}if a[2]==0{return 2;}if b[2]==0{return 2;}if a[2]==1{if b[2]==1{var x:[12]i64;var y:[12]i64;if jj_alias_set_location(a,0,x as *i64)==0{return 0;}if jj_alias_set_location(b,0,y as *i64)==0{return 0;}return jj_alias_location_query(x as *i64,y as *i64);}}
+ var all_no:i64=1;var i:i64=0;while i<a[2]{var x2:[12]i64;if jj_alias_set_location(a,i,x2 as *i64)==0{return 0;}var j:i64=0;while j<b[2]{var y2:[12]i64;if jj_alias_set_location(b,j,y2 as *i64)==0{return 0;}if jj_alias_location_query(x2 as *i64,y2 as *i64)!=1{all_no=0;}j=j+1;}i=i+1;}if all_no!=0{return 1;}return 2;
+}
+fn jj_alias_set_entry_same_raw(a:*i64,at:i64,b:*i64,bt:i64)->i64{var k:i64=0;while k<8{if a[at+k]!=b[bt+k]{return 0;}k=k+1;}return 1;}
+fn jj_alias_set_ranges_disjoint(a:*i64,an:i64,b:*i64,bn:i64)->i64{if a==0{return 0;}if b==0{return 0;}if an<=0{return 0;}if bn<=0{return 0;}if an>0x0fffffff{return 0;}if bn>0x0fffffff{return 0;}var ab:i64=a as i64;var bb:i64=b as i64;var ae:i64=ab+an*8;var be:i64=bb+bn*8;if ae<=ab{return 0;}if be<=bb{return 0;}if ae<=bb{return 1;}if be<=ab{return 1;}return 0;}
+fn jj_alias_set_join(a:*i64,an:i64,b:*i64,bn:i64,out:*i64,on:i64)->i64{
+ if jj_alias_set_valid(a,an)==0{return 0;}if jj_alias_set_valid(b,bn)==0{return 0;}var cap:i64=jj_alias_set_capacity(on);if cap<=0{return 0;}if jj_alias_set_ranges_disjoint(a,an,out,on)==0{return 0;}if jj_alias_set_ranges_disjoint(b,bn,out,on)==0{return 0;}var required:i64=a[2];var i:i64=0;while i<b[2]{var duplicate:i64=0;var j:i64=0;while j<a[2]{if jj_alias_set_entry_same_raw(a,8+j*8,b,8+i*8)!=0{duplicate=1;}j=j+1;}if duplicate==0{required=required+1;}i=i+1;}if required>cap{return 0;}
+ var z:i64=0;while z<on{out[z]=0;z=z+1;}out[0]=0x4a4a415345543031;out[1]=1;out[2]=required;out[3]=cap;var write:i64=0;i=0;while i<a[2]{var src:i64=8+i*8;var dst:i64=8+write*8;var k:i64=0;while k<8{out[dst+k]=a[src+k];k=k+1;}write=write+1;i=i+1;}i=0;while i<b[2]{var duplicate2:i64=0;var j2:i64=0;while j2<a[2]{if jj_alias_set_entry_same_raw(a,8+j2*8,b,8+i*8)!=0{duplicate2=1;}j2=j2+1;}if duplicate2==0{var src2:i64=8+i*8;var dst2:i64=8+write*8;var k2:i64=0;while k2<8{out[dst2+k2]=b[src2+k2];k2=k2+1;}write=write+1;}i=i+1;}out[4]=jj_alias_set_seal(out,on);return 1;
+}
+fn jj_alias_set_resource_contract(out:*i64,n:i64)->i64{if out==0{return 0;}if n<8{return 0;}out[0]=8;out[1]=8;out[2]=8;out[3]=72;out[4]=1;out[5]=2;out[6]=3;out[7]=4;return 1;}

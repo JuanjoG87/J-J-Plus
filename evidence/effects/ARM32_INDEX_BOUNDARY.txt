@@ -1,0 +1,2 @@
+OMEGA_FAIL rc=113 code=1601 reason=arm32-direct-load-index-range reason_id=6601 expected=constant-index-0-through-31
+No output object is published for index 32.

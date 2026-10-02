@@ -1,0 +1,3 @@
+JJBUILD3
+P tests/effects/escape_analysis/
+81c02d0da906121dd81b4f1daead29bc5abe396240a6e9f5a7c9d6d4b7b02407  return_direct_as_i64.j

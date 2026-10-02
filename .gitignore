@@ -1,0 +1,25 @@
+# Local editor and operating-system state
+*~
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.key
+
+# Regenerable local work
+/build/
+/dist/
+/artifacts/pure_selfhost/
+/artifacts/r716/work/
+*.tmp
+*.core
+core
+
+# Keep canonical promoted and historical evidence tracked explicitly.
+!artifacts/current/
+!artifacts/current/**

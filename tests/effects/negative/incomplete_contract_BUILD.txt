@@ -1,0 +1,3 @@
+JJBUILD3
+P tests/effects/negative/
+a11af3ea8b55b8bc42103b948eb2bf905a9acb1731d2c90e3adfdccf503dae41  incomplete_contract.j

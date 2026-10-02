@@ -1,0 +1,3 @@
+JJBUILD3
+P tests/effects/positive/
+f7087e8904219ec347b8431bb70de204597624e71fd5becb9b5571fc2f6651d8  write_capability.j

@@ -1,0 +1,3 @@
+JJBUILD3
+P tests/effects/negative/
+9eb3f8ff50a789b2ff28eff145c7a7ff959ea719d254469cf7277072adc38464  outside_capability.j

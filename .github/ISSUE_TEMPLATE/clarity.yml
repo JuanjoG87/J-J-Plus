@@ -1,0 +1,23 @@
+name: Human readability review
+description: Report syntax, diagnostic, or maintainability friction in J/J+
+title: "[clarity] "
+labels: ["human-readability"]
+body:
+  - type: textarea
+    id: source
+    attributes:
+      label: Minimal J/J+ source
+      description: Show the smallest source fragment that is unclear.
+    validations:
+      required: true
+  - type: textarea
+    id: interpretation
+    attributes:
+      label: What was unclear?
+      description: Explain what you expected a human reviewer to infer and what was ambiguous.
+    validations:
+      required: true
+  - type: input
+    id: compiler
+    attributes:
+      label: Compiler lineage / SHA-256

@@ -1,0 +1,4 @@
+// R722 pure leaf inlining admission and one-op composition foundation.
+extern fn jj_transform_work_admit(p0:*i64,p1:*i64)->i64;
+fn jj_leaf_inline_admit(c:*i64,before:*i64,after:*i64)->i64{if c==0{return 0;}if before==0{return 0;}if after==0{return 0;}if c[0]<1{return 0;}if c[0]>4{return 0;}if c[1]!=0{return 0;}if c[2]!=0{return 0;}if c[3]!=0{return 0;}if c[4]!=0{return 0;}if c[5]>2{return 0;}var op:i64=c[6];if op!=9{if op!=10{if op!=16{if op!=17{if op!=18{return 0;}}}}}return jj_transform_work_admit(before,after);}
+fn jj_leaf_inline_compose(c:*i64,arg:i64,out:*i64)->i64{if c==0{return 0;}if out==0{return 0;}var op:i64=c[6];var k:i64=c[7];var v:i64=0;if op==9{v=arg+k;}else{if op==10{v=arg-k;}else{if op==16{v=arg&k;}else{if op==17{v=arg|k;}else{if op==18{v=arg^k;}else{return 0;}}}}}out[0]=v;out[1]=op;out[2]=k;return 1;}

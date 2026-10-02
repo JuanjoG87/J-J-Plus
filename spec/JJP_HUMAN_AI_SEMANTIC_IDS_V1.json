@@ -1,0 +1,332 @@
+{
+  "schema": "JJP_HUMAN_AI_SEMANTIC_IDS_V1",
+  "principle": "one_semantics_two_views_no_hidden_ai_language",
+  "statements": {
+    "local": 4,
+    "if": 5,
+    "loop": 6,
+    "return": 7,
+    "break": 8,
+    "assignment": 9,
+    "expression": 10,
+    "block": 11,
+    "program_root": 12,
+    "require": 13
+  },
+  "operands": {
+    "store_scalar": 42,
+    "store_aggregate": 43,
+    "return": 44,
+    "branch": 45,
+    "condition": 46
+  },
+  "cir": {
+    "jump": 27,
+    "branch_zero": 28,
+    "return": 30
+  },
+  "keywords": {
+    "var": {
+      "hash_hex": "844d13516982c088",
+      "length": 3
+    },
+    "if": {
+      "hash_hex": "9bc77700c672b768",
+      "length": 2
+    },
+    "while": {
+      "hash_hex": "0e187c656c484194",
+      "length": 5
+    },
+    "else": {
+      "hash_hex": "6160ced97abcf88a",
+      "length": 4
+    },
+    "require": {
+      "hash_hex": "83d47bb3d9452c4e",
+      "length": 7
+    },
+    "return": {
+      "hash_hex": "7488c53f48adf9a1",
+      "length": 6
+    },
+    "break": {
+      "hash_hex": "387b55bfd9138ed6",
+      "length": 5
+    },
+    "capability": {
+      "hash_hex": "899be43ff36c08ed",
+      "length": 10
+    },
+    "reads": {
+      "hash_hex": "b96f993f5cd100ac",
+      "length": 5
+    },
+    "writes": {
+      "hash_hex": "4a17ba19dbf700df",
+      "length": 6
+    },
+    "none": {
+      "hash_hex": "8e37b614dbd95475",
+      "length": 4
+    }
+  },
+  "diagnostics": {
+    "1401": {
+      "reason_id": 6401,
+      "reason": "require-missing-else",
+      "expected": "else-return"
+    },
+    "1402": {
+      "reason_id": 6402,
+      "reason": "require-missing-return",
+      "expected": "return"
+    },
+    "1403": {
+      "reason_id": 6403,
+      "reason": "require-invalid-condition",
+      "expected": "condition-expression"
+    },
+    "1404": {
+      "reason_id": 6404,
+      "reason": "require-condition-authority",
+      "expected": "non-narrow-condition-authority"
+    },
+    "1405": {
+      "reason_id": 6405,
+      "reason": "require-invalid-failure-expression",
+      "expected": "failure-expression"
+    },
+    "1406": {
+      "reason_id": 6406,
+      "reason": "require-failure-type-mismatch",
+      "expected": "failure-value-compatible-with-function-return"
+    },
+    "1407": {
+      "reason_id": 6407,
+      "reason": "require-missing-semicolon",
+      "expected": "semicolon"
+    },
+    "1501": {
+      "reason_id": 6501,
+      "reason": "effect-contract-incomplete",
+      "expected": "capability-reads-writes-contract"
+    },
+    "1502": {
+      "reason_id": 6502,
+      "reason": "effect-contract-order",
+      "expected": "capability-then-reads-then-writes"
+    },
+    "1503": {
+      "reason_id": 6503,
+      "reason": "effect-target-not-pointer-parameter",
+      "expected": "pointer-parameter-or-none"
+    },
+    "1504": {
+      "reason_id": 6504,
+      "reason": "effect-target-duplicate",
+      "expected": "unique-effect-target"
+    },
+    "1505": {
+      "reason_id": 6505,
+      "reason": "effect-outside-capability",
+      "expected": "effect-target-declared-as-capability"
+    },
+    "1506": {
+      "reason_id": 6506,
+      "reason": "undeclared-read-effect",
+      "expected": "reads-declaration-covering-observed-read"
+    },
+    "1507": {
+      "reason_id": 6507,
+      "reason": "undeclared-write-effect",
+      "expected": "writes-declaration-covering-observed-write"
+    },
+    "1508": {
+      "reason_id": 6508,
+      "reason": "unsupported-capability-escape",
+      "expected": "direct-indexed-capability-access"
+    },
+    "1601": {
+      "reason_id": 6601,
+      "reason": "arm32-direct-load-index-range",
+      "expected": "constant-index-0-through-31"
+    },
+    "1509": {
+      "reason_id": 6509,
+      "reason": "effect-call-unverified",
+      "expected": "contracted-callee-for-direct-capability-argument"
+    },
+    "1510": {
+      "reason_id": 6510,
+      "reason": "effect-alias-unverified",
+      "expected": "acyclic-single-assignment-local-pointer-alias-chain-to-capability-root"
+    },
+    "1511": {
+      "reason_id": 6511,
+      "reason": "effect-pointer-transform-unverified",
+      "expected": "constant-byte-offset-0-through-248-aligned-to-8-from-capability-provenance"
+    },
+    "1512": {
+      "reason_id": 6512,
+      "reason": "effect-return-escape-unverified",
+      "expected": "non-escaping-capability-use-or-future-explicit-transfer-contract"
+    },
+    "1513": {
+      "reason_id": 6513,
+      "reason": "effect-storage-escape-unverified",
+      "expected": "non-publishing-capability-storage-or-future-explicit-transfer-contract"
+    },
+    "1514": {
+      "reason_id": 6514,
+      "reason": "authority-source-transferred",
+      "expected": "active-authority-root-at-capability-use"
+    }
+  },
+  "effect_contract": {
+    "record_kind": 10,
+    "version": 1,
+    "fields": [
+      "function_id",
+      "capability_mask",
+      "declared_reads_mask",
+      "declared_writes_mask",
+      "observed_reads_mask",
+      "observed_writes_mask",
+      "version"
+    ],
+    "scope": "pointer parameters; direct indexed access; bounded direct interprocedural propagation; bounded acyclic single-assignment local pointer alias chains rooted at a capability parameter; ARM32 constant indices 0..31 and bounded semantic normalization in Review 0.1",
+    "rule": "declared reads/writes are verified upper bounds within capability authority"
+  },
+  "effect_call_summary": {
+    "record_kind": 11,
+    "version": 1,
+    "fields": [
+      "call_source_start",
+      "call_source_count",
+      "argument_role",
+      "callee_function_id",
+      "requires_read",
+      "requires_write",
+      "version"
+    ],
+    "scope": "direct internal calls that pass either a caller capability parameter directly or a verified local alias chain rooted at that parameter to a contracted callee pointer parameter",
+    "rule": "callee declared read/write requirements are propagated into caller observed effects; missing verifiable callee contract fails closed"
+  },
+  "effect_alias_provenance": {
+    "record_kind": 12,
+    "version": 1,
+    "fields": [
+      "alias_local_ordinal",
+      "source_parameter_ordinal",
+      "initializer_store_node",
+      "alias_source_start",
+      "alias_source_count",
+      "origin_source_start",
+      "version"
+    ],
+    "scope": "acyclic single-assignment local pointer alias chains rooted at a declared capability parameter, bounded to 64 alias edges",
+    "rule": "each kind-12 record names the immediate source local; source ordinal must be strictly smaller than alias ordinal; effects are attributed to the resolved capability root; rebinding and depth beyond 64 fail closed"
+  },
+  "effect_pointer_transform": {
+    "record_kind": 13,
+    "version": 1,
+    "fields": [
+      "expression_node_ref",
+      "source_local_ordinal",
+      "constant_byte_offset",
+      "expression_source_start",
+      "expression_source_count",
+      "version",
+      "operator_symbol"
+    ],
+    "scope": "pointer + constant-byte-offset expressions in contracted functions",
+    "rule": "offset must be a literal byte offset aligned to 8 and within 0..248; dynamic, unaligned and unsupported transforms fail closed with 1511/6511"
+  },
+  "effect_transformed_alias_provenance": {
+    "record_kind": 14,
+    "version": 1,
+    "fields": [
+      "alias_local_ordinal",
+      "source_local_ordinal",
+      "initializer_store_node",
+      "alias_name_source_start",
+      "transform_node_ref",
+      "constant_byte_offset",
+      "version"
+    ],
+    "scope": "single-assignment local pointer alias initialized by an admitted kind-13 pointer transform",
+    "rule": "the transformed alias retains the capability root and carries the verified byte offset; accumulated transformed offset across the provenance chain must remain within 248 bytes"
+  },
+  "effect_escape_event": {
+    "record_kind": 15,
+    "version": 1,
+    "fields": [
+      "shape",
+      "capability_root_ordinal",
+      "local_ordinal",
+      "source_start",
+      "source_count",
+      "version"
+    ],
+    "shape_encoding": {
+      "channel_bits": "0..7",
+      "provenance_bits": "8..15",
+      "transport_bits": "16..23"
+    },
+    "channels": {
+      "1": "return",
+      "2": "storage_publication",
+      "3": "unverified_call"
+    },
+    "provenance": {
+      "1": "direct_capability",
+      "2": "alias_chain",
+      "3": "transformed_provenance"
+    },
+    "transport": {
+      "1": "pointer_value",
+      "2": "integer_cast",
+      "3": "call_argument"
+    },
+    "rule": "escape events are structural evidence only; they never authorize authority transfer"
+  },
+  "authority_root_state": {
+    "record_kind": 16,
+    "version": 1,
+    "fields": [
+      "function_id",
+      "capability_root_ordinal",
+      "state",
+      "generation",
+      "source_start",
+      "source_count",
+      "version"
+    ],
+    "states": {
+      "1": "active",
+      "2": "transferred"
+    },
+    "rule": "each declared capability root publishes exactly one ACTIVE generation-0 state; authority state is append-only; Preview.14 permits only the bound internal handoff path, which marks the current source TRANSFERRED and activates a verified destination identity at generation+1 while preserving exactly one ACTIVE lineage for the original provenance; every capability use must resolve provenance and current authority identity to an ACTIVE state; aliases and transforms never create authority; public transfer syntax is not admitted"
+  },
+  "authority_destination_binding": {
+    "record_kind": 17,
+    "version": 1,
+    "fields": [
+      "function_id",
+      "destination_local_ordinal",
+      "capability_provenance_root_ordinal",
+      "generation",
+      "destination_start",
+      "destination_count",
+      "event_start",
+      "event_count",
+      "version"
+    ],
+    "rule": "a positive internal authority handoff may bind the next ACTIVE generation only to a previously declared ordinary pointer local whose admitted provenance descends from the current ACTIVE source; destination reuse, sibling-lineage jumps, malformed/cyclic provenance and destinations outside the admitted declaration lifetime fail closed; exactly one ACTIVE lineage must remain",
+    "permission_root_unchanged": true,
+    "exactly_one_active_lineage": true,
+    "unbound_positive_transition_in_production": false,
+    "public_transfer_syntax_admitted": false
+  }
+}

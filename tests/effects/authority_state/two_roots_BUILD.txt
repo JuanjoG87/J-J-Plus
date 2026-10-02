@@ -1,0 +1,3 @@
+JJBUILD3
+P tests/effects/authority_state/
+c403c7de9b471e17c4ae26a2e97823489964229abbace4a37d8684d0af196908  two_roots.j

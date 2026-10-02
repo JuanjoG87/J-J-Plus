@@ -1,0 +1,3 @@
+JJBUILD3
+P tests/effects/alias_provenance/
+45c7a2c712510aac1ab280c3a63a4960986da29d7114d40e9955809c0dfa018f  transformed_alias_dynamic.j
