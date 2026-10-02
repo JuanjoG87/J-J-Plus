@@ -36,7 +36,7 @@ cd J-J-Plus
 chmod +x bootstrap/linux_x86_64/jjc-root
 bootstrap/linux_x86_64/jjc-root examples/HELLO_BUILD.txt hello.o
 chmod +x hello.o
-hello.o
+./hello.o
 ```
 
 The expected runtime exit code is `0`. The full quick start also verifies the reviewed SHA-256 outputs.
