@@ -1,5 +1,7 @@
 # Human-AI Semantics Demo
 
+[Español](HUMAN_AI_SEMANTICS_DEMO.es.md)
+
 The Human-AI direction in J/J+ is **not** the claim that structured diagnostics are unique. Mature compilers already expose machine-readable diagnostics.
 
 The narrower claim is that J/J+ is designing important program relations as stable compiler semantics that both a human reader and a tool/agent can inspect without maintaining separate interpretations.
