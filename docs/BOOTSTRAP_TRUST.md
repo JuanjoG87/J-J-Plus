@@ -1,5 +1,7 @@
 # Bootstrap Trust Boundary
 
+[Español](BOOTSTRAP_TRUST.es.md)
+
 Public Review 0.1 is reproducible **from the bootstrap binaries committed in this repository**. That is an important property, but it is not the same as proving the semantic correctness or independent origin of those binaries.
 
 ## Public trust boundary
