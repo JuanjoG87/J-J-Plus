@@ -1,5 +1,7 @@
 # External Review Status
 
+[Español](EXTERNAL_REVIEW_STATUS.es.md)
+
 **Public Review 0.1 is an invitation to review. It is not a claim of independent peer review.**
 
 As of this document's publication:
