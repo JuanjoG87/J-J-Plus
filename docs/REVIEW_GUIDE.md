@@ -1,5 +1,20 @@
 # Public Review Guide
 
+## Review status terminology
+
+Public Review 0.1 is an invitation to external scrutiny. It is not a claim that the project has already received independent peer review.
+
+Use these terms precisely:
+
+- `gated` / `validated`: passed documented project checks;
+- `internally audited`: inspected through the project's creator/rival process;
+- `externally reproduced`: independently reproduced by a third party;
+- `externally reviewed`: attributable to an identifiable independent reviewer.
+
+See [EXTERNAL_REVIEW_STATUS.md](EXTERNAL_REVIEW_STATUS.md).
+
+A useful external review should try to falsify a concrete invariant, not merely confirm that hashes match. Two starting points are [WHAT_JJPLUS_PREVENTS.md](WHAT_JJPLUS_PREVENTS.md) and [BOOTSTRAP_TRUST.md](BOOTSTRAP_TRUST.md).
+
 The goal of Review 0.1 is not to ask whether J/J+ has every feature expected of a mature language. The useful question is whether its emerging Human-AI contract is understandable, deterministic and verifiable.
 
 For human review, try reading `examples/guarded.j` before reading compiler internals. Record anything whose behavior you had to guess. Then inspect the matching diagnostics and `spec/JJP_HUMAN_AI_SEMANTIC_IDS_V1.json` and check whether they clarify the same semantics rather than creating a second interpretation.
