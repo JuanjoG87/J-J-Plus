@@ -1,5 +1,7 @@
 # What J/J+ Prevents Today
 
+[Español](WHAT_JJPLUS_PREVENTS.es.md)
+
 This document shows concrete properties enforced by the **production Public Review 0.1 compiler** and by the retained Preview.14 authority-state gate.
 
 The point is not that J/J+ already has a complete ownership system. It does not. The point is that unsupported or contradictory authority/effect behavior fails closed instead of being accepted silently.
